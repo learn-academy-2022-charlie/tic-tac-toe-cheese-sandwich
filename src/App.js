@@ -13,20 +13,18 @@ class App extends Component {
   }
 
  markSquare = (index) => {
-  let {squares, turn, lastTurn} = this.state
+  let {squares, turn} = this.state
   let playerOne = "❌"
   let playerTwo = "⭕️"
-  if(turn === 0){
+  if(turn === 0 && squares[index] == null){
     squares[index] = playerOne
     turn = turn += 1
   this.setState({lastTurn: playerOne, squares: squares,turn: turn})
-  }else if(turn > 0){
+  }else if(turn > 0 && squares[index] == null){
     squares[index] = playerTwo
     turn = 0
   this.setState({lastTurn: playerTwo, squares: squares,turn: turn})
   }
-
-
  }
 
   render() {
