@@ -6,7 +6,14 @@ This project will challenge your knowledge of React but should also be an exerci
 
 ### 📚 User Stories
 - As a user, I can see a 3x3 grid game board on the page.
+    -break into js and map through the object state "squares" to output the value length of the array.
+-add a div tag to contain all the info for css
+-add className to h1 and div to be able to style 
+-Use CSS to adust width and location of text and grid.
 - As a user, I can click on a square to mark it.
+    -add and on click to the square div within square.js
+    -create a function called  markSquare that takes in the components and deconstructs them so that we can setState.
+    -made a handle click that changed the square in state at the index
 - As a user, my partner can click on a square after me and see their mark.
 - As a user, I can't click on a square that has already been marked.
 - As a user, when either my partner or I win the game (3 squares in a row: horizontally, vertically, or diagonally) I can see a notice telling me which player won.
