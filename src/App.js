@@ -7,16 +7,26 @@ class App extends Component {
     super(props)
     this.state = {
       squares: [null, null, null, null, null, null, null, null, null],
-      ex: null
+      turn: 0,
+      lastTurn: null
     }
   }
 
  markSquare = (index) => {
-  const {squares, ex} = this.state
-  
-    squares[index] = "❌"
+  let {squares, turn, lastTurn} = this.state
+  let playerOne = "❌"
+  let playerTwo = "⭕️"
+  if(turn === 0){
+    squares[index] = playerOne
+    turn = turn += 1
+  this.setState({lastTurn: playerOne, squares: squares,turn: turn})
+  }else if(turn > 0){
+    squares[index] = playerTwo
+    turn = 0
+  this.setState({lastTurn: playerTwo, squares: squares,turn: turn})
+  }
 
-  this.setState({squares: squares})
+
  }
 
   render() {
