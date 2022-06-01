@@ -6,8 +6,8 @@
   align-items: center;
   display: flex;
   font-size: 100px;
- 
-  
+  cursor: pointer;
+  user-select: none;
 }
 
 .grid{

@@ -7,23 +7,20 @@ class App extends Component {
     super(props)
     this.state = {
       squares: [null, null, null, null, null, null, null, null, null],
-      turn: 0,
-      lastTurn: null
+      player: 1,
     }
   }
 
  markSquare = (index) => {
-  let {squares, turn} = this.state
-  let playerOne = "❌"
-  let playerTwo = "⭕️"
-  if(turn === 0 && squares[index] == null){
-    squares[index] = playerOne
-    turn = turn += 1
-  this.setState({lastTurn: playerOne, squares: squares,turn: turn})
-  }else if(turn > 0 && squares[index] == null){
-    squares[index] = playerTwo
-    turn = 0
-  this.setState({lastTurn: playerTwo, squares: squares,turn: turn})
+  let {squares, player} = this.state
+  if(player === 1 && squares[index] == null){
+    squares[index] = "❌"
+    player += 1
+  this.setState({squares: squares, player: player})
+  }else if(player === 2 && squares[index] == null){
+    squares[index] = "⭕️"
+    player = 1
+  this.setState({squares: squares, player: player})
   }
  }
 
@@ -32,17 +29,16 @@ class App extends Component {
       <>
         <h1 className='heading'>Tic Tac Toe</h1>
         <div className="grid">
-        {this.state.squares.map((value, index) => {
-          return <Square 
-          value = {value}
-          key = {index}
-          index = {index}
-          markSquare = {this.markSquare}
-           />
-        } 
-         )}
-         </div>
-        
+          {this.state.squares.map((value, index) => {
+            return <Square 
+            value = {value}
+            key = {index}
+            index = {index}
+            markSquare = {this.markSquare}
+            />
+            } 
+          )}
+        </div>
       </>
     )
   }
